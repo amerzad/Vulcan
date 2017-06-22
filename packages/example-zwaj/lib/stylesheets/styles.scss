@@ -1,0 +1,51 @@
+body{
+  background: #FAFAFA;
+}
+
+.main, .header{
+  width: 100%;
+  margin: 20px auto;
+  max-width: 1000px;
+}
+
+.header-wrapper{
+  background: white;
+  border-bottom: 1px #E7E7E7 solid;
+  margin-bottom: 60px;
+  padding-top: 1px;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo{
+  width: 200px;
+  margin: 0;
+  img{
+    display: block;
+    width: 100%;
+  }
+}
+
+.header-nav{
+  display: flex;
+  >div{
+    margin-left: 20px;
+  }
+}
+
+.header-accounts{
+  .modal-trigger{
+    display: inline-block;
+  }
+}
+h1, h2, h3 {
+  text-align: center;
+}
+.proposalPage {
+  max-width: 640px;
+  margin: 20px auto;
+}

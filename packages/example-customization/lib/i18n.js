@@ -5,5 +5,5 @@
 import { addStrings } from 'meteor/vulcan:core';
 
 addStrings('en', {
-  "posts.color": "Color" // add a new one (collection.field: "Label")
+  "posts.color": "Colors" // add a new one (collection.field: "Label")
 });

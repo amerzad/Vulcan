@@ -44,10 +44,10 @@ This package export a function called `subscribMutationsGenerator` that takes a 
 ```js
 // in my custom package
 import subscribMutationsGenerator from 'meteor/vulcan:subscribe';
-import Movies from './collection.js';
+import MaleProposals from './collection.js';
 
 // the function creates the code and give it to the graphql server
-subscribMutationsGenerator(Movies); 
+subscribMutationsGenerator(MaleProposals); 
 ```
 
 This will creates for you the mutations `moviesSubscribe` & `moviesUnsubscribe` than can be used in the `SubscribeTo` component: 
