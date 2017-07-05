@@ -9,7 +9,22 @@ Three resolvers are defined:
 */
 
 import { addGraphQLResolvers } from 'meteor/vulcan:core';
+import Users from 'meteor/vulcan:users';
 
+
+const addOwner = (selector, context) => {
+  "use strict";
+  if(context.currentUser && !Users.isAdmin(context.currentUser)){
+    return {
+      $and: [
+        {...selector},
+        {userId: context.currentUser._id}
+      ]
+    }
+  }else{
+    return selector;
+  }
+};
 // basic list, single, and total query resolvers
 const resolvers = {
 
@@ -19,6 +34,7 @@ const resolvers = {
 
     resolver(root, {terms = {}}, context, info) {
       let {selector, options} = context.MaleProposals.getParameters(terms, {}, context.currentUser);
+      selector = addOwner(selector, context);
       return context.MaleProposals.find(selector, options).fetch();
     },
 
@@ -29,7 +45,9 @@ const resolvers = {
     name: 'maleProposalsSingle',
 
     resolver(root, {documentId}, context) {
-      const document = context.MaleProposals.findOne({_id: documentId});
+      let selector = {_id: documentId};
+      selector = addOwner(selector, context);
+      const document = context.MaleProposals.findOne(selector);
       return context.Users.restrictViewableFields(context.currentUser, context.MaleProposals, document);
     },
   
@@ -40,7 +58,8 @@ const resolvers = {
     name: 'maleProposalsTotal',
     
     resolver(root, {terms = {}}, context) {
-      const {selector, options} = context.MaleProposals.getParameters(terms, {}, context.currentUser);
+      let {selector, options} = context.MaleProposals.getParameters(terms, {}, context.currentUser);
+      selector = addOwner(selector, context);
       return context.MaleProposals.find(selector, options).count();
     },
   
@@ -51,7 +70,10 @@ const resolvers = {
 const maleProposalUserResolver = {
   MaleProposal: {
     user(maleProposal, args, context) {
-      return context.Users.findOne({ _id: maleProposal.userId }, { fields: context.Users.getViewableFields(context.currentUser, context.Users) });
+      return context.Users.findOne(
+        { _id: maleProposal.userId },
+        { fields: context.Users.getViewableFields(context.currentUser, context.Users) }
+      );
     },
   },
 };

@@ -25,9 +25,14 @@ const MaleProposalsList = ({results = [], currentUser, loading, loadMore, count,
         <div className="maleProposals">
 
           {/* new document form */}
-
-          <MaleProposalsNewForm />
-
+          <div className="item-div">
+          {MaleProposals.options.mutations.new.check(currentUser) ?
+              <Components.ModalTrigger label="إضافة طلب زوجة">
+                <MaleProposalsNewForm />
+              </Components.ModalTrigger>
+              : null
+          }
+          </div>
           {/* documents list */}
 
           {results.map(maleProposal => <MaleProposalsItem key={maleProposal._id} maleProposal={maleProposal} currentUser={currentUser} />)}
@@ -35,8 +40,8 @@ const MaleProposalsList = ({results = [], currentUser, loading, loadMore, count,
           {/* load more */}
 
           {totalCount > results.length ?
-            <a href="#" onClick={e => {e.preventDefault(); loadMore();}}>Load More ({count}/{totalCount})</a> :
-            <p>No more items.</p>
+            <a href="#" onClick={e => {e.preventDefault(); loadMore();}}>حمل المزيد ({count}/{totalCount})</a> :
+            <p>لا يوجد عناصر أخرى.</p>
           }
 
         </div>

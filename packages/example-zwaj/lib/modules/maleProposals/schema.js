@@ -15,13 +15,13 @@ const maleProposalSchema = {
 
   _id: {
     type: String,
-    optional: false,
+    optional: true,
     viewableBy: ['members'],
     order: 10,
   },
   createdAt: {
     type: Date,
-    optional: false,
+    optional: true,
     viewableBy: ['members'],
     onInsert: () => {
       return new Date();
@@ -30,7 +30,7 @@ const maleProposalSchema = {
   },
   userId: {
     type: String,
-    optional: false,
+    optional: true,
     viewableBy: ['members'],
     resolveAs: 'user: User',
     order: 30,
@@ -41,6 +41,8 @@ const maleProposalSchema = {
     label: 'الاسم الرباعي',
     type: String,
     optional: false,
+    insertableBy: ['members'],
+    editableBy: ['members'],
     viewableBy: ['members'],
     order: 40,
   },
@@ -199,6 +201,7 @@ const maleProposalSchema = {
     insertableBy: ['members'],
     editableBy: ['members'],
     viewableBy: ['members'],
+    control: 'number',
     order: 140,
   },
   health: {
@@ -208,6 +211,7 @@ const maleProposalSchema = {
     insertableBy: ['members'],
     editableBy: ['members'],
     viewableBy: ['members'],
+    control: 'textarea',
     order: 150,
   },
   maritalStatus: {
@@ -233,6 +237,7 @@ const maleProposalSchema = {
     insertableBy: ['members'],
     editableBy: ['members'],
     viewableBy: ['members'],
+    control: 'number',
     order: 170,
   },
   kidAges: {
@@ -251,6 +256,7 @@ const maleProposalSchema = {
     insertableBy: ['members'],
     editableBy: ['members'],
     viewableBy: ['members'],
+    control: 'number',
     order: 190,
   },
   weight: {
@@ -260,6 +266,7 @@ const maleProposalSchema = {
     insertableBy: ['members'],
     editableBy: ['members'],
     viewableBy: ['members'],
+    control: 'number',
     order: 200,
   },
   color: {
@@ -285,6 +292,7 @@ const maleProposalSchema = {
     insertableBy: ['members'],
     editableBy: ['members'],
     viewableBy: ['members'],
+    control: 'number',
     order: 213,
   },
   job: {
@@ -303,6 +311,7 @@ const maleProposalSchema = {
     insertableBy: ['members'],
     editableBy: ['members'],
     viewableBy: ['members'],
+    control: 'checkbox',
     order: 230,
   },
   hasHouse: {
@@ -312,6 +321,7 @@ const maleProposalSchema = {
     insertableBy: ['members'],
     editableBy: ['members'],
     viewableBy: ['members'],
+    control: 'checkbox',
     order: 240,
   },
   tel1: {
@@ -437,6 +447,7 @@ const maleProposalSchema = {
     insertableBy: ['members'],
     editableBy: ['members'],
     viewableBy: ['members'],
+    control: 'checkbox',
     group: {
       name: "other",
       label: "الصفات المطلوبة في الزوجة",
@@ -450,6 +461,7 @@ const maleProposalSchema = {
     insertableBy: ['members'],
     editableBy: ['members'],
     viewableBy: ['members'],
+    control: 'number',
     group: {
       name: "other",
       label: "الصفات المطلوبة في الزوجة",
@@ -463,6 +475,7 @@ const maleProposalSchema = {
     insertableBy: ['members'],
     editableBy: ['members'],
     viewableBy: ['members'],
+    control: 'number',
     group: {
       name: "other",
       label: "الصفات المطلوبة في الزوجة",
@@ -482,6 +495,10 @@ const maleProposalSchema = {
       options: function () { // options for the select form control
         return NationalityOptions;
       }
+    },
+    group: {
+      name: "other",
+      label: "الصفات المطلوبة في الزوجة",
     },
     order: 345,
   },
@@ -552,6 +569,7 @@ const maleProposalSchema = {
     insertableBy: ['members'],
     editableBy: ['members'],
     viewableBy: ['members'],
+    control: 'checkbox',
     group: {
       name: "other",
       label: "الصفات المطلوبة في الزوجة",
@@ -559,12 +577,13 @@ const maleProposalSchema = {
     order: 380,
   },
   otherHeightFrom: {
-    label: 'أالطول الأدنى (سم)',
+    label: 'الطول الأدنى (سم)',
     type: Number,
     optional: false,
     insertableBy: ['members'],
     editableBy: ['members'],
     viewableBy: ['members'],
+    control: 'number',
     group: {
       name: "other",
       label: "الصفات المطلوبة في الزوجة",
@@ -578,6 +597,7 @@ const maleProposalSchema = {
     insertableBy: ['members'],
     editableBy: ['members'],
     viewableBy: ['members'],
+    control: 'number',
     group: {
       name: "other",
       label: "الصفات المطلوبة في الزوجة",
@@ -591,6 +611,7 @@ const maleProposalSchema = {
     insertableBy: ['members'],
     editableBy: ['members'],
     viewableBy: ['members'],
+    control: 'number',
     group: {
       name: "other",
       label: "الصفات المطلوبة في الزوجة",
@@ -604,6 +625,7 @@ const maleProposalSchema = {
     insertableBy: ['members'],
     editableBy: ['members'],
     viewableBy: ['members'],
+    control: 'number',
     group: {
       name: "other",
       label: "الصفات المطلوبة في الزوجة",

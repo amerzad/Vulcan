@@ -15,7 +15,5 @@ registerFragment(`
       displayName
     }
     name
-    gradeYear
-    notes
   }
 `);

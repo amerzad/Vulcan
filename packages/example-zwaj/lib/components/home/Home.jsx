@@ -1,6 +1,6 @@
 import React from 'react';
 import {Components} from 'meteor/vulcan:core';
-
+import { Link } from 'react-router';
 const Home = () =>
     <div>
       <h1>نبذة عن مشروع الزواج</h1>
@@ -28,8 +28,8 @@ const Home = () =>
       <h2>نصيحة:</h2>
       <p>اذا كان النبى صلى الله عليه وسلم قد شرط الصدق والتبيين فى البيع لكى يكون مباركاً وهو واقع على سلع وممتلكات (فإن صدقا وبيّنا بورك لهما فى بيعهما وإن كتما وكذبا محقت بركة بيعهما ) فإن الصدق والتبيين فى موضوع النكاح من باب أولى .</p>
       <p>&nbsp;</p>
-      <h3><a href="men">نموذج الرجال</a></h3>
-      <h3><a href="women">نموذج النساء</a></h3>
+      <h3><Link to="men">نموذج الرجال</Link></h3>
+      <h3><Link to="women">نموذج النساء</Link></h3>
     </div>
 ;
 

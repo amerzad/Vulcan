@@ -11,6 +11,7 @@ component (if the "component" prop is specified).
 import React from 'react';
 import { Components, withCurrentUser } from 'meteor/vulcan:core';
 import Users from 'meteor/vulcan:users';
+import { Link } from 'react-router';
 
 // navigation bar component when the user is logged in
 
@@ -24,7 +25,7 @@ const NavLoggedIn = ({currentUser}) =>
         
         <Components.ModalTrigger label={Users.getDisplayName(currentUser)} size="small">
           <div>
-            {Users.isAdmin(currentUser) ? <p>Admin</p> : null}
+            {Users.isAdmin(currentUser) ? <p>مدير</p> : null}
             <Components.AccountsLoginForm />
           </div>
         </Components.ModalTrigger>
@@ -40,7 +41,7 @@ const NavLoggedOut = ({currentUser}) =>
 
   <div className="header-nav header-logged-out">
     
-      <Components.ModalTrigger label="Sign Up/Log In" size="small">
+      <Components.ModalTrigger label="تسجيل/دخول" size="small">
         <Components.AccountsLoginForm />
       </Components.ModalTrigger>
 
@@ -55,7 +56,7 @@ const Header = ({currentUser}) =>
     <div className="header">
       
       <h1 className="logo">
-        <img src="/packages/example-zwaj/lib/static/vulcanstagram.png" alt="مشروع الزواج"/>
+        <Link to="/"><img src="/packages/example-zwaj/lib/static/logo.png" alt="مشروع الزواج"/></Link>
       </h1>
 
       {currentUser ? 

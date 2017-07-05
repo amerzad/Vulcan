@@ -4,9 +4,10 @@ vulcan:core
 vulcan:forms
 vulcan:routing
 vulcan:users
+vulcan:admin
 ############ Language Packages ############
 
-vulcan:i18n-en-us
+vulcan:i18n-ar-sa
 
 ############ Accounts Packages ############
 
@@ -23,3 +24,5 @@ example-zwaj
 # example-forum
 # example-customization
 # zwaj
+force-ssl
+dynamic-import

@@ -19,7 +19,8 @@ Package.onUse(function (api) {
   api.addFiles('lib/stylesheets/bootstrap.min.css');
   api.addFiles('lib/stylesheets/styles.scss');
   api.addAssets([
-    'lib/static/vulcanstagram.png'
+    'lib/static/logo.png',
+    'lib/static/pattern.png'
   ], ['client']);
   api.mainModule('lib/server/main.js', 'server');
   api.mainModule('lib/client/main.js', 'client');

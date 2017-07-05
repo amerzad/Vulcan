@@ -13,17 +13,17 @@ import MaleProposalsEditForm from './MaleProposalsEditForm.jsx';
 
 const MaleProposalsItem = ({maleProposal, currentUser}) =>
 
-  <div style={{paddingBottom: "15px",marginBottom: "15px", borderBottom: "1px solid #ccc"}}>
+  <div className="item-div">
 
     {/* document properties */}
     
-    <h4>{maleProposal.name} ({maleProposal.gradeYear})</h4>
-    <p>{maleProposal.notes} – {maleProposal.user && maleProposal.user.displayName}</p>
+    <h4>{maleProposal.name}</h4>
+    <p>{maleProposal.user && maleProposal.user.displayName}</p>
     
     {/* edit document form */}
 
     {MaleProposals.options.mutations.edit.check(currentUser, maleProposal) ?
-      <Components.ModalTrigger label="Edit MaleProposal">
+      <Components.ModalTrigger label="تعديل">
         <MaleProposalsEditForm currentUser={currentUser} documentId={maleProposal._id} />
       </Components.ModalTrigger>
       : null

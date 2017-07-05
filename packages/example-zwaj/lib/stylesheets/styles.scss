@@ -1,18 +1,18 @@
 body{
-  background: #FAFAFA;
+  background: url(/packages/example-zwaj/lib/static/pattern.png) #FAFAFA;
 }
 
-.main, .header{
+.main, .header, .footer {
   width: 100%;
   margin: 20px auto;
   max-width: 1000px;
 }
 
 .header-wrapper{
-  background: white;
   border-bottom: 1px #E7E7E7 solid;
   margin-bottom: 60px;
   padding-top: 1px;
+  background: url(/packages/example-zwaj/lib/static/pattern.png) #FAFAFA;
 }
 
 .header{
@@ -48,4 +48,9 @@ h1, h2, h3 {
 .proposalPage {
   max-width: 640px;
   margin: 20px auto;
+}
+.item-div {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ccc;
 }
